@@ -11,6 +11,8 @@ import {
   TbSettings,
   TbMenu2,
 } from "react-icons/tb"
+import { auth } from "@/firebase"
+import { useAuth } from "@/context/AuthContext"
 
 const sidebarVariants = {
   open: { width: "16em" },
@@ -23,6 +25,7 @@ const sidebarVariants = {
 
 const Sidebar = ({ children }) => {
   const [isOpen, setOpen] = useState(false);
+  const {logout} = useAuth()
 
 useEffect(() => {
   if (typeof window !== 'undefined' && window.localStorage) {
